@@ -1,0 +1,21 @@
+.nav-reserve{
+    background-color: #517df7;
+    padding: 10px !important;
+    border-radius: 25px;
+}
+
+.nav-link{
+    padding: 10px 30px !important;
+    font-size: 15px !important;
+}
+
+.text-white-75{
+    font-family: 'Cinzel', serif;
+}
+.text-muted{
+    font-family: 'Alfa Slab One', cursive;
+}
+
+.container img{
+    width: 150px;
+}

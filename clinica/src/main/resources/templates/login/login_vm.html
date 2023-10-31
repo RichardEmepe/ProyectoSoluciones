@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Iniciar sesión</title>
+        <link rel="icon" type="image/jpeg" href="../../static/assets/logo.png">
+        <link th:href="@{/css/styleLogin.css}" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id="form-login" class="form-container">
+            <div class="login-container">
+                <h1>Iniciar Sesión</h1>
+                <div class="login-input">
+                    <div class="input-box">
+                        <i class="fa-solid fa-user fa-xl" style="color: #ffffff;"></i>
+                        <input type="text" id="username" name="username" autocomplete="off">
+                    </div>
+                    <div class="input-box">
+                        <i class="fa-solid fa-key fa-xl" style="color: #ffffff;"></i>
+                        <input type="password" id="password" name="password">
+                    </div>
+                    <div class="input-options">
+                        <input type="radio"> Recordar contraseña
+                        <br>
+                        <a href="">Has olvidado tu contraseña?</a>
+                    </div>
+                    <div class="input-buttons">
+                        <a href="#" id="login-button">Iniciar Sesión</a>
+                        <a href="#" id="show-register-form">Registrarse</a>
+                    </div>
+                </div>
+                <div class="back-opt">
+                    <a th:href="@{/inicio/}"><i class="fa-solid fa-circle-arrow-left fa-xl" style="color: #ffffff;"></i></a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

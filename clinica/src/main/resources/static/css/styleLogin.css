@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+*{
+    margin: 0 0;
+    padding: 0 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    font-family: Poppins,sans-serif;
+    background: linear-gradient(to top, rgba(92, 77, 66, 0.4) 0%, rgba(92, 77, 66, 0.8) 100%), url("../assets/img/bg-hospital2.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.login-container{
+    border: 1px solid black;
+    padding: 20px 50px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 25px black;
+    backdrop-filter: blur(5px);
+    background-color: rgba(89, 208, 212, 0.295);
+}
+
+.login-container h1{
+    margin: 30px auto;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+}
+
+.input-box{
+    margin: 20px;
+}
+
+.input-box .user-in{
+    padding-right: 87px;
+}
+
+.input-box .pass-in{
+    padding-right: 10px;
+}
+
+.input-box label{
+    font-size: 18px;
+}
+
+.input-box input{
+    background: none;
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 18px;
+    margin-left: 20px;
+    padding: 10px;
+    width: 200px;
+}
+
+.input-box input:focus{
+    outline: none;
+    background: none;
+}
+
+.input-options{
+    margin-top: 40px;
+}
+
+.input-buttons{
+    text-align: center;
+    margin: 40px auto 20px;
+}
+
+.input-buttons #login-button, .input-buttons #show-register-form{
+    width: 150px;
+    height: 40px;
+    padding: 15px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 20px;
+    background: white;
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: all .3s;
+}
+
+.input-buttons #login-button:hover, .input-buttons #show-register-form:hover{
+    background: rgb(148, 231, 252);
+    color: black;
+}
+
+.back-opt{
+    margin: 40px 0 0 0;
+    text-align: left;
+}
+
+.back-opt a{
+    text-decoration: none;
+    color: white;
+}
+
+

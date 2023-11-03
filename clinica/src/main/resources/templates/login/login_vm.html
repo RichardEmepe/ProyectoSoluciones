@@ -4,8 +4,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Iniciar sesión</title>
-        <link rel="icon" type="image/jpeg" href="../../static/assets/logo.png">
-        <link th:href="@{/css/styleLogin.css}" rel="stylesheet" />
+        <link rel="icon" type="image/jpeg" th:href="@{/assets/logo.png}">
+        <link th:href="@{/css/login_css/styleLogin.css}" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body>
@@ -27,7 +27,7 @@
                         <a href="">Has olvidado tu contraseña?</a>
                     </div>
                     <div class="input-buttons">
-                        <a href="#" id="login-button">Iniciar Sesión</a>
+                        <a th:href="@{/dashboard/}" id="login-button">Iniciar Sesión</a>
                         <a href="#" id="show-register-form">Registrarse</a>
                     </div>
                 </div>

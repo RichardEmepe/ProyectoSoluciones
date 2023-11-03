@@ -12,7 +12,7 @@ body{
     text-align: center;
     min-height: 100vh;
     font-family: Poppins,sans-serif;
-    background: linear-gradient(to top, rgba(92, 77, 66, 0.4) 0%, rgba(92, 77, 66, 0.8) 100%), url("../assets/img/bg-hospital2.jpg");
+    background: linear-gradient(to top, rgba(92, 77, 66, 0.4) 0%, rgba(92, 77, 66, 0.8) 100%), url("../../assets/img/bg-hospital2.jpg");
     background-size: cover;
     background-position: center;
 }

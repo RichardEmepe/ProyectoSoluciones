@@ -11,12 +11,7 @@ public class DashboardController {
     public String dashboard(){
         return "Dashboard/Secciones/Principal";
     }
-
-    @RequestMapping("/pacientes")
-    public String dashClientes(){
-        return "Dashboard/Secciones/Pacientes";
-    }
-
+    
     @RequestMapping("/citas")
     public String dashCitas(){
         return "Dashboard/Secciones/Citas";

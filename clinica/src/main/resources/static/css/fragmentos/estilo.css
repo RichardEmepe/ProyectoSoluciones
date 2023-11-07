@@ -8,3 +8,8 @@
 .icColor{
     color: white;
 }
+
+.center-card{
+    margin: 0 30%;
+    justify-content: center;
+}

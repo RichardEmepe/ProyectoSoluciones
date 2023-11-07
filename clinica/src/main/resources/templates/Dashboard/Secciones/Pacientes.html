@@ -13,8 +13,147 @@
             </div>
             <div id="layoutSidenav_content">
                 <main>
-                    <div class="container-fluid px-4">
-                        <h1>Contenido de PACIENTES</h1>
+                    <div class="container-fluid px-4 ">
+                        <h1>Gestor de pacientes</h1>
+
+                        
+                        <br><br>
+
+                        <div class="row">  <!-- REGISTRAR Y BUSCAR A LA MISMA ALTURA -->
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        
+                                        <h4><i class="fa-solid fa-floppy-disk"></i> Registrar paciente</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <form th:action="@{/dashboard/pacientes/save}" th:object="${paciente}" method="post">
+                                            <div class="row">
+                                                <div class="col-md-12 mb-2">
+                                                    <label>DNI del paciente</label>
+                                                    <input th:field="*{DNI}" type="text" class="form-control" placeholder="Ingrese DNI del paciente" required/>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <label>Nombres del paciente</label>
+                                                    <input th:field="*{Nombres}" type="text" class="form-control" placeholder="Ingrese nombres del paciente" required/>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <label>Apellidos del paciente</label>
+                                                    <input th:field="*{Apellidos}" type="text" class="form-control" placeholder="Ingrese apellidos del paciente" required/>
+                                                </div>
+                                                <div class="col-md-12 mb-2">
+                                                    <label>Teléfono del paciente</label>
+                                                    <input th:field="*{Telefono}" type="text" class="form-control" placeholder="Ingrese teléfono del paciente" required/>
+                                                </div>
+                                                <div class="row mt-3">
+                                                    <div class="col-12 text-center">
+                                                        <button type="submit" class="btn btn-success">Registrar Paciente</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4><i class="fa-solid fa-magnifying-glass"></i> Buscar pacientes</h2>
+                                    </div>
+                                    <div class="card-body">
+                                        <form th:action="@{/dashboard/pacientes/buscar}" method="post">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <input name="txtBuscarDNI" type="text" class="form-control" placeholder="Ingrese DNI" required>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <button type="submit" class="btn btn-primary">Buscar</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <br>
+                                        <div class="row">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item">
+                                                    DNI: <span th:text="${pacienteBuscado.DNI}"></span>
+        
+                                                </li>
+                                                <li class="list-group-item">
+                                                    Nombres: <span th:text="${pacienteBuscado.Nombres}"></span>
+        
+                                                </li>
+                                                <li class="list-group-item">
+                                                    Apellidos: <span th:text="${pacienteBuscado.Apellidos}"></span>
+        
+                                                </li>
+                                                <li class="list-group-item">
+                                                    Teléfono: <span th:text="${pacienteBuscado.Telefono}"></span>
+        
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="center-card">
+                            
+                        </div>
+
+                        <br><br><br>
+                        <div class="card">
+                            <div class="card-header">
+                                <h4><i class="fa-solid fa-list-ul"></i> Pacientes Registrados</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr class="text-center">
+                                                <th>DNI</th>
+                                                <th>Nombres</th>
+                                                <th>Apellidos</th>
+                                                <th>Teléfono</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr th:each="paciente : ${listaPacientes}">
+                                                <td th:text="${paciente.DNI}"></td>
+                                                <td th:text="${paciente.Nombres}"></td>
+                                                <td th:text="${paciente.Apellidos}"></td>
+                                                <td th:text="${paciente.Telefono}"></td>
+                                                <td class="text-center">
+                                                    <a href="#" class="btn btn-warning editarPaciente"
+                                                    th:data-dni = "${paciente.DNI}"
+                                                    th:data-nombres = "${paciente.Nombres}"
+                                                    th:data-apellidos = "${paciente.Apellidos}"
+                                                    th:data-telefono = "${paciente.Telefono}">
+                                                        <i class="fa-solid fa-pen-to-square"></i>
+                                                        <b>Editar</b>
+                                                    </a>
+                                                </td>
+                                                <td class="text-center ">
+                                                    <a th:href="@{/dashboard/pacientes/delete/}+${paciente.DNI}" class="btn btn-danger" onclick="return confirm('Borrar paciente? Los cambios no se podrán revertir.')">
+                                                        <i class="fa-solid fa-trash-can"></i>
+                                                        <b>Eliminar</b>
+                                                    </a>
+                                                </td>
+                                                <td class="text-center">
+                                                    <a class="btn btn-info"><i class="fa-solid fa-calendar-days"></i> 
+                                                        <b>Agendar cita</b>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+
+
                     </div>
                 </main>
                 <footer th:replace="Dashboard/layout/fragmentos :: fFooter">
@@ -22,10 +161,56 @@
                 </footer>
             </div>
         </div>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar datos del paciente</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    
+                    <form th:action="@{/dashboard/pacientes/save}" th:object="${paciente}" method="post">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <input type="hidden" name="DNI" id="txtDNI" />
+                                    <label>Nombre del paciente</label>
+                                    <input type="text" name="Nombres" id="txtNombres" class="form-control" required/>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <label>Apellidos del paciente</label>
+                                    <input type="text" name="Apellidos" id="txtApellidos" class="form-control" required/>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <label>Teléfono del paciente</label>
+                                    <input type="text" name="Telefono" id="txtTelefono" class="form-control" required/>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-success">Guardar cambios</button>
+
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+
 
         <div th:replace="Dashboard/layout/fragmentos :: fLibrerias">
         </div>
         
-        <script th:src="@{/js/libreriaClientes.js}"></script>
+        <script th:src="@{/js/libreriaPacientes.js}"></script>
     </body>
 </html>

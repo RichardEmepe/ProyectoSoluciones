@@ -1,0 +1,240 @@
+INSERT INTO PACIENTE (DNI,Nombres,Apellidos,Telefono)
+VALUES
+  ('73779338','Jason','Dickerson','993676141'),
+  ('45675364','Jason','Lester','963126555'),
+  ('72175368','Chandler','Baird','913721647'),
+  ('72763156','Kylie','Cochran','944653321'),
+  ('71589841','Raya','Wade','954319433'),
+  ('77573749','Constance','Owen','995873831'),
+  ('74524426','Armand','Hyde','982715373'),
+  ('47553974','Amir','Roberts','948722141'),
+  ('76484230','Ashton','Kaufman','985662388'),
+  ('71575208','Xanthus','Malone','952325293');
+INSERT INTO PACIENTE (DNI,Nombres,Apellidos,Telefono)
+VALUES
+  ('78834107','Colton','Mcclain','947140720'),
+  ('74694358','Nichole','Irwin','975458902'),
+  ('45253364','Abbot','Walls','901886236'),
+  ('41506818','Buckminster','Frye','963452273'),
+  ('78566337','Kenneth','Abbott','973356273'),
+  ('76722931','Teegan','Carrillo','926568789'),
+  ('74708839','Sydnee','Meyer','974534826'),
+  ('46423120','Julie','Mcfarland','915585863'),
+  ('47816675','Melyssa','Livingston','961661230'),
+  ('70174858','Larissa','Gutierrez','961984141');
+INSERT INTO PACIENTE (DNI,Nombres,Apellidos,Telefono)
+VALUES
+  ('41251544','Gil','Soto','932784516'),
+  ('76171285','Wayne','Mckenzie','951372006'),
+  ('79551888','Zahir','Faulkner','935310352'),
+  ('40426166','Vincent','Morrison','986785661'),
+  ('47583681','Hasad','Mason','930671122'),
+  ('45384674','Maggy','Baldwin','924555011'),
+  ('48325029','Drake','Farley','944765457'),
+  ('74281880','Kiayada','Jimenez','902267226'),
+  ('72792777','Ainsley','Lara','967932236'),
+  ('74582049','Dylan','Lloyd','934982734');
+INSERT INTO PACIENTE (DNI,Nombres,Apellidos,Telefono)
+VALUES
+  ('70502244','Amber','Heath','982721321'),
+  ('49948145','Laura','Schwartz','923781127'),
+  ('45870817','Michelle','Rowe','969357377'),
+  ('46569897','Kimberley','Bolton','961634466'),
+  ('41562098','Gannon','Norris','986372274'),
+  ('42003791','Ishmael','Berry','965387318'),
+  ('72546614','Alyssa','Frank','947534892'),
+  ('76901108','Desirae','Cohen','958481213'),
+  ('76323612','Whitney','Lawrence','988144783'),
+  ('77034024','Neil','Woodard','930343261');
+INSERT INTO PACIENTE (DNI,Nombres,Apellidos,Telefono)
+VALUES
+  ('47020871','Orli','Norman','940553328'),
+  ('43187823','Abbot','Collier','959108466'),
+  ('45873812','Rooney','Mcknight','934535517'),
+  ('43982063','Britanni','Herrera','983246078'),
+  ('43841511','Shoshana','Gallegos','987198868'),
+  ('43432427','Angelica','Saunders','930845384'),
+  ('44201904','Winter','Cain','926401681'),
+  ('47522717','Tana','George','967415549'),
+  ('42424684','David','Boyd','968590064'),
+  ('42491422','Karly','Blackburn','960010713');
+INSERT INTO PACIENTE (DNI,Nombres,Apellidos,Telefono)
+VALUES
+  ('45254611','Omar','Howe','942834375'),
+  ('47244228','Solomon','Morin','994455054'),
+  ('77354632','Lee','Craig','969453767'),
+  ('48626773','Britanney','Browning','952834473'),
+  ('45721441','Leroy','Osborne','961995691'),
+  ('75588177','Alvin','Hunter','937117790'),
+  ('75891734','Wing','Tyson','935720567'),
+  ('49256181','Alfonso','Stuart','987855818'),
+  ('44695168','Daquan','Vega','982256485'),
+  ('40537346','Benedict','Beard','985820162');
+INSERT INTO PACIENTE (DNI,Nombres,Apellidos,Telefono)
+VALUES
+  ('44395244','Ian','Guerra','960186575'),
+  ('44086655','Charles','Kelley','944282514'),
+  ('41015627','Gloria','Abbott','953981496'),
+  ('75071226','Rebekah','Garza','974712873'),
+  ('70597814','Ray','Cannon','975800757'),
+  ('76775512','Xanthus','Ayers','945645342'),
+  ('46940696','Darius','Robles','924667654'),
+  ('40898923','Vivian','Rich','966544416'),
+  ('74746735','Kyra','Fox','938447590'),
+  ('48187264','Yolanda','Jennings','958628736');
+INSERT INTO PACIENTE (DNI,Nombres,Apellidos,Telefono)
+VALUES
+  ('71587595','Kamal','Cantu','981210626'),
+  ('71626384','Chester','Michael','998234791'),
+  ('78418221','Rahim','Pruitt','944733337'),
+  ('46734773','Flynn','Bright','953926937'),
+  ('45946872','Martina','Floyd','958731566'),
+  ('70392133','Zahir','Fuller','967282345'),
+  ('73222736','Shannon','Mckenzie','905468537'),
+  ('76421465','Dana','Battle','961383668'),
+  ('72015461','Bert','Dale','922747838'),
+  ('44385675','Paula','Larson','906494460');
+INSERT INTO PACIENTE (DNI,Nombres,Apellidos,Telefono)
+VALUES
+  ('70205136','Dolan','Joseph','951559873'),
+  ('75463867','Murphy','Spears','987746856'),
+  ('44191577','Evelyn','Kelly','924742839'),
+  ('75449808','Kenneth','Avery','977535105'),
+  ('72470471','Jason','Cash','981861775'),
+  ('79589107','Alika','Merrill','923372853'),
+  ('42423541','Melanie','Lucas','921451919'),
+  ('71326319','Montana','Diaz','916505333'),
+  ('45456999','Patricia','Craft','973557250'),
+  ('48153910','Wynter','Weiss','916453263');
+INSERT INTO PACIENTE (DNI,Nombres,Apellidos,Telefono)
+VALUES
+  ('41942438','Tanya','Hudson','947884425'),
+  ('79331351','Hyatt','Shepard','948780434'),
+  ('43201879','Chester','Garza','905251728'),
+  ('71341562','Venus','Conley','979737228'),
+  ('44796132','Malcolm','Nixon','975344250'),
+  ('70655555','Gil','Fry','928648365'),
+  ('44520812','Jade','Hensley','925244141'),
+  ('73243872','Mason','Riggs','923486174'),
+  ('76373073','Fritz','Young','941226121'),
+  ('71715477','Fuller','Larson','938734541');
+INSERT INTO PACIENTE (DNI,Nombres,Apellidos,Telefono)
+VALUES
+  ('76745257','Stephanie','Richard','968484974'),
+  ('73926332','Denton','Ortiz','934502323'),
+  ('72844235','Charles','Foley','911681226'),
+  ('46776265','Moses','Snider','912626824'),
+  ('40628755','Peter','Maddox','901472338'),
+  ('43351156','Savannah','Clarke','911062137'),
+  ('47374625','Kane','Jackson','972717952'),
+  ('43386315','Cameron','Ruiz','944075203'),
+  ('78981265','Knox','Hatfield','926950682'),
+  ('45617005','Honorato','Sullivan','922884098');
+INSERT INTO PACIENTE (DNI,Nombres,Apellidos,Telefono)
+VALUES
+  ('41112414','Brian','Daniels','948253934'),
+  ('76536026','Ivana','Berg','951626478'),
+  ('42185713','Lucy','Green','982274727'),
+  ('43212611','TaShya','Berry','979424834'),
+  ('42540484','Mariko','Stanton','954888334'),
+  ('72483022','Sasha','Meyer','923766413'),
+  ('74388537','Doris','Buckley','992183678'),
+  ('41320052','Kibo','Clarke','927336598'),
+  ('41293662','Suki','Jimenez','969685629'),
+  ('77211842','Lila','Lott','962526426');
+INSERT INTO PACIENTE (DNI,Nombres,Apellidos,Telefono)
+VALUES
+  ('46771191','Camden','Nielsen','949567467'),
+  ('44841913','Paloma','Rowe','973011381'),
+  ('45832919','Sybil','Roy','919364413'),
+  ('47065462','Garth','Wood','954643968'),
+  ('70736457','Jaquelyn','Faulkner','983954211'),
+  ('47494091','Indira','Pickett','921577784'),
+  ('77202673','Destiny','Mclaughlin','946240613'),
+  ('48344666','Heather','Baxter','907153732'),
+  ('78768723','Alice','Mercer','963145490'),
+  ('72236453','Wang','Good','981353526');
+INSERT INTO PACIENTE (DNI,Nombres,Apellidos,Telefono)
+VALUES
+  ('77365528','Channing','Vasquez','984468534'),
+  ('48767569','Ariana','Morris','986645662'),
+  ('76382476','Marshall','Moss','944288015'),
+  ('76155328','Chaney','Hudson','918034525'),
+  ('40682882','Fritz','Matthews','933188121'),
+  ('41627437','Wayne','Stout','970897967'),
+  ('41754262','Victor','Doyle','982392197'),
+  ('71374876','Gannon','Stevenson','912944398'),
+  ('73116714','Malcolm','Phillips','920769848'),
+  ('42667244','Melyssa','Velazquez','919881136');
+INSERT INTO PACIENTE (DNI,Nombres,Apellidos,Telefono)
+VALUES
+  ('48358372','Marny','Chandler','914297435'),
+  ('41121357','Marvin','Le','941357233'),
+  ('47697852','Wade','Fletcher','904742145'),
+  ('77041648','Palmer','Mckee','935385096'),
+  ('73538942','Keelie','Richardson','938835863'),
+  ('41728572','Malcolm','Roth','983237708'),
+  ('46147451','Camden','Ellison','990268581'),
+  ('41715949','Leandra','Carver','961752432'),
+  ('77314216','Marcia','Avila','981929687'),
+  ('44925483','Guinevere','Black','972452451');
+INSERT INTO PACIENTE (DNI,Nombres,Apellidos,Telefono)
+VALUES
+  ('77054251','Ulric','Gentry','985746438'),
+  ('49749458','Elmo','Foley','974258860'),
+  ('72686342','Sydnee','Maynard','912397337'),
+  ('74595422','Nayda','Preston','911546177'),
+  ('47243185','Orli','Clayton','998442684'),
+  ('42637238','Lael','Mitchell','923125345'),
+  ('49735347','Lewis','Burris','992407643'),
+  ('70731186','Jasper','Delgado','955284158'),
+  ('49903666','Brian','Pickett','962381732'),
+  ('47895879','Stewart','Horne','929444501');
+INSERT INTO PACIENTE (DNI,Nombres,Apellidos,Telefono)
+VALUES
+  ('47448754','Leo','Macias','977008860'),
+  ('47774284','Alexis','Smith','932075865'),
+  ('44583258','Declan','Hartman','998392551'),
+  ('40143045','Shea','Higgins','973173191'),
+  ('46171489','Shafira','Reed','977557256'),
+  ('72839347','Bethany','Dawson','952326254'),
+  ('72396712','Grace','Graham','927584426'),
+  ('47624324','Jasmine','Finch','988313584'),
+  ('43125156','Laura','Leblanc','941742240'),
+  ('41622707','Beatrice','Raymond','949854101');
+INSERT INTO PACIENTE (DNI,Nombres,Apellidos,Telefono)
+VALUES
+  ('73817276','Melinda','Matthews','987522336'),
+  ('76211304','Reece','Benjamin','968958147'),
+  ('77577302','Omar','Kirk','950766265'),
+  ('77634424','Grace','Bradley','994252257'),
+  ('45786444','Barclay','Robles','924148628'),
+  ('74214546','Signe','Melendez','968526159'),
+  ('41028757','Patricia','Cantu','961773030'),
+  ('78495538','Catherine','Yang','985275518'),
+  ('41775734','Theodore','Bryant','927561484'),
+  ('41175319','Beverly','Jenkins','928801652');
+INSERT INTO PACIENTE (DNI,Nombres,Apellidos,Telefono)
+VALUES
+  ('78375232','Odysseus','Young','977545585'),
+  ('44433416','Lane','Perez','939437254'),
+  ('72678333','Christine','Hewitt','936546152'),
+  ('41678285','Shoshana','Johnson','963077162'),
+  ('48720314','Dominic','Ross','996686522'),
+  ('42882239','Leigh','Ferrell','913475262'),
+  ('44424711','Cole','Flowers','981232713'),
+  ('71420357','Clinton','Dennis','929722216'),
+  ('70657433','Wayne','Lott','944872466'),
+  ('45107864','Odysseus','Fleming','956038571');
+INSERT INTO PACIENTE (DNI,Nombres,Apellidos,Telefono)
+VALUES
+  ('47752873','Mallory','Vargas','993844378'),
+  ('46877158','Alexa','Peterson','952187748'),
+  ('40766513','Allegra','Fox','911511448'),
+  ('41482115','Zelenia','Newton','967628117'),
+  ('42086403','Davis','Horn','925271252'),
+  ('76249756','Keith','Bauer','976126812'),
+  ('47389091','Calista','Garrison','968964118'),
+  ('48572338','Jakeem','Blevins','964298255'),
+  ('46568867','Otto','Petty','947553662'),
+  ('77663911','Blythe','Smith','990148448');

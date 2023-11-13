@@ -104,7 +104,7 @@
                         <br><br><br>
                         <div class="card">
                             <div class="card-header">
-                                <h4><i class="fa-solid fa-list-ul"></i> Pacientes Registrados</h4>
+                                <h4><i class="fa-solid fa-list-ul"></i> Pacientes registrados</h4>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -140,7 +140,11 @@
                                                     </a>
                                                 </td>
                                                 <td class="text-center">
-                                                    <a class="btn btn-info"><i class="fa-solid fa-calendar-days"></i> 
+                                                    <a href="#" class="btn btn-info agendarCitaPaciente"
+                                                    th:data-dni = "${paciente.DNI}"
+                                                    th:data-nombres = "${paciente.Nombres}"
+                                                    th:data-apellidos = "${paciente.Apellidos}">
+                                                        <i class="fa-solid fa-calendar-days"></i> 
                                                         <b>Agendar cita</b>
                                                     </a>
                                                 </td>
@@ -207,6 +211,68 @@
             </div>
         </div>
 
+        <!-- MODAL AGENDAR CITA -->
+        <div class="modal fade" id="modalAgendarCita" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Agendar cita para el paciente</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    
+                    <form th:action="@{/dashboard/pacientes/registrarcita}" th:object="${citas}" method="post">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <label>DNI del paciente:</label>
+                                    <input type="text" name="DNI_PACIENTE" id="txtDNICita" class="form-control" readonly/>
+                                    <label>Nombres y apellidos:</label>
+                                    <input type="text" id="txtNombresCita" class="form-control" readonly/>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-6 mb-3">
+                                    <label>Fecha de cita:</label>
+                                    <input type="date" name="Fecha" id="txtFecha" class="form-control" required/>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <label>Hora:</label>
+                                    <input type="time" name="Hora" id="txtHora" class="form-control" required/>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <label>Especialidad:</label>
+                                    <select name="Especialidad" class="form-select" aria-label="Default select example">
+                                        <option selected>Seleccione</option>
+                                        <option value="CARDIOLOGÍA">Cardiología</option>
+                                        <option value="DERMATOLOGÍA">Dermatología</option>
+                                        <option value="GINECOLOGÍA">Ginecología</option>
+                                        <option value="OFTALMOLOGÍA">Oftalmología</option>
+                                        <option value="PEDIATRÍA">Pediatría</option>
+                                        <option value="NEUROLOGÍA">Neurología</option>
+                                        <option value="CIRUGÍA GENERAL">Cirugía General</option>
+                                        <option value="UROLOGÍA">Urología</option>
+                                        <option value="PSIQUIATRÍA">Psiquiatría</option>
+                                        <option value="10">Ten</option>
+                                        <option value="11">Eleven</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-success">Agendar</button>
+
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
 
         <div th:replace="Dashboard/layout/fragmentos :: fLibrerias">
         </div>

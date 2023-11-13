@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.proyecto_clinica.clinica.model.Entidades.Citas;
 import com.proyecto_clinica.clinica.model.Entidades.Paciente;
+import com.proyecto_clinica.clinica.model.Service.ICitasService;
 import com.proyecto_clinica.clinica.model.Service.IPacienteService;
 
 @Controller
@@ -16,6 +18,9 @@ public class PacientesController {
     
     @Autowired
     private IPacienteService pacienteService;
+
+    @Autowired
+    private ICitasService citasService;
 
     @RequestMapping("/")
     public String clientes(Model model){
@@ -35,6 +40,13 @@ public class PacientesController {
         return "redirect:/dashboard/pacientes/";
     }
 
+    @RequestMapping(value = "/registrarcita", method = RequestMethod.POST)
+    public String registrarCita(Citas citas){
+        citasService.registrarCita(citas);
+
+        return "redirect:/dashboard/pacientes/";
+    }
+
     @RequestMapping("/delete/{DNI}")
     public String delete(@PathVariable(value = "DNI") Long DNI){
         pacienteService.eliminarPaciente(DNI);
@@ -43,12 +55,17 @@ public class PacientesController {
 
     @RequestMapping(value = "/buscar", method = RequestMethod.POST)
     public String buscar(Long txtBuscarDNI, Model model){
-        Paciente pacienteBuscado = pacienteService.buscarPaciente(txtBuscarDNI);
+        Paciente pacienteBuscado = new Paciente();
         Paciente paciente = new Paciente();
 
-        if (pacienteBuscado == null){
-            pacienteBuscado = new Paciente();
+
+        if (txtBuscarDNI != null){
+            pacienteBuscado = pacienteService.buscarPaciente(txtBuscarDNI);
+            if (pacienteBuscado == null){
+                pacienteBuscado = new Paciente();
+            }
         }
+        
 
         model.addAttribute("pacienteBuscado", pacienteBuscado);
         model.addAttribute("paciente", paciente);

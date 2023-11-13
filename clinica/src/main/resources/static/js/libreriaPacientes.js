@@ -21,4 +21,15 @@ document.querySelectorAll(".editarPaciente").forEach(i => i.addEventListener("cl
     }
 ))
 
+document.querySelectorAll(".agendarCitaPaciente").forEach(i => i.addEventListener("click", e =>{
+    document.getElementById('txtDNICita').value = i.dataset.dni;
+    document.getElementById('txtNombresCita').value = i.dataset.nombres + " " + i.dataset.apellidos;
+
+
+    var myModal = new bootstrap.Modal(document.getElementById('modalAgendarCita'))
+    myModal.show();
+
+}
+))
+
 

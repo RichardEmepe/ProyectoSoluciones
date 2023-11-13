@@ -12,8 +12,8 @@ public class DashboardController {
         return "Dashboard/Secciones/Principal";
     }
     
-    @RequestMapping("/citas")
-    public String dashCitas(){
-        return "Dashboard/Secciones/Citas";
-    }
+    // @RequestMapping("/citas")
+    // public String dashCitas(){
+    //     return "Dashboard/Secciones/Citas";
+    // }
 }

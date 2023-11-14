@@ -5,31 +5,33 @@ import java.io.Serializable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Paciente")
-public class Paciente implements Serializable{
+@Table(name = "Doctor")
+public class Doctor implements Serializable{
     @Id
-    // @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "DNI")
-    private Long DNI;
+    @Column(name = "DNI_DOCTOR")
+    private Long DNI_DOCTOR;
 
     @Column(name = "Nombres")
     private String Nombres;
-
+    
     @Column(name = "Apellidos")
     private String Apellidos;
+    
+    @OneToOne
+    @JoinColumn(name = "ESPEC_DOC")
+    private Especialidad_doc especialidad_doc;
 
-    @Column(name = "Telefono")
-    private String Telefono;
-
-    public Long getDNI() {
-        return DNI;
+    public Long getDNI_DOCTOR() {
+        return DNI_DOCTOR;
     }
 
-    public void setDNI(Long dNI) {
-        DNI = dNI;
+    public void setDNI_DOCTOR(Long dNI_DOCTOR) {
+        DNI_DOCTOR = dNI_DOCTOR;
     }
 
     public String getNombres() {
@@ -48,14 +50,14 @@ public class Paciente implements Serializable{
         Apellidos = apellidos;
     }
 
-    public String getTelefono() {
-        return Telefono;
+    public Especialidad_doc getEspecialidad_doc() {
+        return especialidad_doc;
     }
 
-    public void setTelefono(String telefono) {
-        Telefono = telefono;
+    public void setEspecialidad_doc(Especialidad_doc especialidad_doc) {
+        this.especialidad_doc = especialidad_doc;
     }
-    
+
     
 
 }

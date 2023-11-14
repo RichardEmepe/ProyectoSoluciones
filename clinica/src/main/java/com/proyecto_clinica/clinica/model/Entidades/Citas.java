@@ -2,11 +2,14 @@ package com.proyecto_clinica.clinica.model.Entidades;
 
 import java.io.Serializable;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -15,7 +18,7 @@ public class Citas implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "NRO_CITA")
-    private String NRO_CITA;
+    private Long NRO_CITA;
 
     @Column(name = "Fecha")
     private String Fecha;
@@ -23,17 +26,23 @@ public class Citas implements Serializable{
     @Column(name = "Hora")
     private String Hora;
 
-    @Column(name = "Especialidad")
-    private String Especialidad;
+    @OneToOne
+    @JoinColumn(name = "ESPEC_ATEN")
+    private Especialidad_aten especialidad_aten;
 
-    @Column(name = "DNI_PACIENTE")
-    private String DNI_PACIENTE;
+    @OneToOne
+    @JoinColumn(name = "DNI_DOCTOR")
+    private Doctor doctor;
 
-    public String getNRO_CITA() {
+    @OneToOne
+    @JoinColumn(name = "DNI_PACIENTE")
+    private Paciente paciente;
+
+    public Long getNRO_CITA() {
         return NRO_CITA;
     }
 
-    public void setNRO_CITA(String nRO_CITA) {
+    public void setNRO_CITA(Long nRO_CITA) {
         NRO_CITA = nRO_CITA;
     }
 
@@ -53,20 +62,28 @@ public class Citas implements Serializable{
         Hora = hora;
     }
 
-    public String getEspecialidad() {
-        return Especialidad;
+    public Especialidad_aten getEspecialidad_aten() {
+        return especialidad_aten;
     }
 
-    public void setEspecialidad(String especialidad) {
-        Especialidad = especialidad;
+    public void setEspecialidad_aten(Especialidad_aten especialidad_aten) {
+        this.especialidad_aten = especialidad_aten;
     }
 
-    public String getDNI_PACIENTE() {
-        return DNI_PACIENTE;
+    public Doctor getDoctor() {
+        return doctor;
     }
 
-    public void setDNI_PACIENTE(String dNI_PACIENTE) {
-        DNI_PACIENTE = dNI_PACIENTE;
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
+
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
     }
 
     

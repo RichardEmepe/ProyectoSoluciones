@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head th:replace="Dashboard/layout/fragmentos :: fCabecera">
+        
+    </head>
+    <body class="sb-nav-fixed">
+        <nav th:replace="Dashboard/layout/fragmentos :: fNav">
+            
+        </nav>
+        <div id="layoutSidenav">
+            <div th:replace="Dashboard/layout/fragmentos :: fMenu">
+                
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1>Visualización de Solicitudes</h1>
+
+                        <br><br><br>
+                        <div class="card">
+                            <div class="card-header">
+                                <h4><i class="fa-solid fa-list-ul"></i> Solicitudes para citas</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr class="text-center">
+                                                <th>DNI</th>
+                                                <th>Nombres y apellidos</th>
+                                                <th>Correo</th>
+                                                <th>Teléfono</th>    
+                                                <th>Fecha de solicitud</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr th:each="citas : ${listaCitas}">
+                                                <td th:text="${citas.NRO_CITA}"></td>
+                                                <td th:text="${citas.Fecha}"></td>
+                                                <td th:text="${citas.Hora}"></td>
+                                                <td th:text="${citas.especialidad_aten.Especialidad}"></td>
+                                                <td> NO asignado </td>
+                                                <td th:text="${citas.paciente.DNI}"></td>
+                                                
+                                                <!-- <td class="text-center">
+                                                    <a href="#" class="btn btn-warning editarPaciente"
+                                                    th:data-dni = "${paciente.DNI}"
+                                                    th:data-nombres = "${paciente.Nombres}"
+                                                    th:data-apellidos = "${paciente.Apellidos}"
+                                                    th:data-telefono = "${paciente.Telefono}">
+                                                        <i class="fa-solid fa-pen-to-square"></i>
+                                                        <b>Asignar doctor</b>
+                                                    </a>
+                                                </td>
+                                                <td class="text-center ">
+                                                    <a th:href="@{/dashboard/pacientes/delete/}+${paciente.DNI}" class="btn btn-danger" onclick="return confirm('Borrar paciente? Los cambios no se podrán revertir.')">
+                                                        <i class="fa-solid fa-trash-can"></i>
+                                                        <b>Eliminar cita</b>
+                                                    </a>
+                                                </td> -->
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer th:replace="Dashboard/layout/fragmentos :: fFooter">
+                    
+                </footer>
+            </div>
+        </div>
+
+        <div th:replace="Dashboard/layout/fragmentos :: fLibrerias">
+        </div>
+        
+        <script th:src="@{/js/libreriaSolicitudes.js}"></script>
+    </body>
+</html>

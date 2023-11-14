@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.proyecto_clinica.clinica.model.DAO.IEspec_atenDAO;
 import com.proyecto_clinica.clinica.model.Entidades.Citas;
 import com.proyecto_clinica.clinica.model.Entidades.Paciente;
 import com.proyecto_clinica.clinica.model.Service.ICitasService;
@@ -22,6 +23,9 @@ public class PacientesController {
     @Autowired
     private ICitasService citasService;
 
+    @Autowired
+    private IEspec_atenDAO espec_atenDAO;
+
     @RequestMapping("/")
     public String clientes(Model model){
         Paciente paciente = new Paciente();
@@ -30,6 +34,7 @@ public class PacientesController {
         model.addAttribute("pacienteBuscado", pacienteBuscado);
         model.addAttribute("paciente", paciente);
         model.addAttribute("listaPacientes", pacienteService.listar());
+        model.addAttribute("tablasRelacionadas", espec_atenDAO.findAll());
 
         return "Dashboard/Secciones/Pacientes";
     }

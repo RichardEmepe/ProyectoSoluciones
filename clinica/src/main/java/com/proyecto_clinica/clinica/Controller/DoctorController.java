@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.proyecto_clinica.clinica.model.DAO.IEspec_docDAO;
 import com.proyecto_clinica.clinica.model.Entidades.Doctor;
-import com.proyecto_clinica.clinica.model.Service.IDoctorService;
+import com.proyecto_clinica.clinica.model.Service.IService.IDoctorService;
 
 @Controller
 @RequestMapping("/dashboard/doctores")

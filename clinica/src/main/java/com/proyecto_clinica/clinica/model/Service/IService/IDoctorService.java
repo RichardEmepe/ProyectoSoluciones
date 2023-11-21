@@ -1,4 +1,4 @@
-package com.proyecto_clinica.clinica.model.Service;
+package com.proyecto_clinica.clinica.model.Service.IService;
 
 import java.util.List;
 

@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.proyecto_clinica.clinica.model.DAO.IEspec_atenDAO;
 import com.proyecto_clinica.clinica.model.Entidades.Citas;
 import com.proyecto_clinica.clinica.model.Entidades.Paciente;
-import com.proyecto_clinica.clinica.model.Service.ICitasService;
-import com.proyecto_clinica.clinica.model.Service.IPacienteService;
+import com.proyecto_clinica.clinica.model.Service.IService.ICitasService;
+import com.proyecto_clinica.clinica.model.Service.IService.IPacienteService;
 
 @Controller
 @RequestMapping("/dashboard/pacientes")

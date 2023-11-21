@@ -26,7 +26,7 @@
                                     <table class="table table-bordered table-hover">
                                         <thead>
                                             <tr class="text-center">
-                                                <th>DNI</th>
+                                                <th>DNI solicitante</th>
                                                 <th>Nombres y apellidos</th>
                                                 <th>Correo</th>
                                                 <th>Teléfono</th>    
@@ -34,13 +34,12 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr th:each="citas : ${listaCitas}">
-                                                <td th:text="${citas.NRO_CITA}"></td>
-                                                <td th:text="${citas.Fecha}"></td>
-                                                <td th:text="${citas.Hora}"></td>
-                                                <td th:text="${citas.especialidad_aten.Especialidad}"></td>
-                                                <td> NO asignado </td>
-                                                <td th:text="${citas.paciente.DNI}"></td>
+                                            <tr th:each="solicitud : ${listaSolicitudes}">
+                                                <td th:text="${solicitud.DNI_SOLICITANTE}"></td>
+                                                <td th:text="${solicitud.NOMBRE_SOLICITANTE}"></td>
+                                                <td th:text="${solicitud.CORREO_SOLICITANTE}"></td>
+                                                <td th:text="${solicitud.TELEFONO_SOLICITANTE}"></td>
+                                                <td th:text="${solicitud.FECHA_SOLICITUD}"></td>
                                                 
                                                 <!-- <td class="text-center">
                                                     <a href="#" class="btn btn-warning editarPaciente"

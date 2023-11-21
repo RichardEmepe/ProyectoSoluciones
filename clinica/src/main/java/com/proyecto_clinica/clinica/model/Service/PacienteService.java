@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.proyecto_clinica.clinica.model.DAO.IPacientesDAO;
 import com.proyecto_clinica.clinica.model.Entidades.Paciente;
+import com.proyecto_clinica.clinica.model.Service.IService.IPacienteService;
 
 @Service
 public class PacienteService implements IPacienteService{

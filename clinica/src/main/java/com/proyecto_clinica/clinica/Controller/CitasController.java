@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.proyecto_clinica.clinica.model.Entidades.Citas;
-import com.proyecto_clinica.clinica.model.Service.ICitasService;
-import com.proyecto_clinica.clinica.model.Service.IDoctorService;
+import com.proyecto_clinica.clinica.model.Service.IService.ICitasService;
+import com.proyecto_clinica.clinica.model.Service.IService.IDoctorService;
 
 @Controller
 @RequestMapping("/dashboard/citas")
@@ -28,19 +28,8 @@ public class CitasController {
         model.addAttribute("citas", citas);
         model.addAttribute("listaCitas", citasService.listarCitas());
         model.addAttribute("listaDoctores", doctorService.listarDoctores());
+
         return "Dashboard/Secciones/Citas";
-
-        
-
-
-        // public String listarElementos(Model model) {
-        //     List<Elemento> elementos = elementoRepository.findAll()
-        //         .stream()
-        //         .filter(elemento -> elemento.getNombre() != null && elemento.getDescripcion() != null)
-        //         .collect(Collectors.toList());
-        //     model.addAttribute("elementos", elementos);
-        //     return "lista_elementos";
-        // }
     }
 
     @RequestMapping(value = "/asignardoctor", method = RequestMethod.POST)

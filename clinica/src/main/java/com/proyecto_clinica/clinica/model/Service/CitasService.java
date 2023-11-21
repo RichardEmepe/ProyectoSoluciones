@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.proyecto_clinica.clinica.model.DAO.ICitasDAO;
 import com.proyecto_clinica.clinica.model.Entidades.Citas;
+import com.proyecto_clinica.clinica.model.Service.IService.ICitasService;
 
 @Service
 public class CitasService implements ICitasService{

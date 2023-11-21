@@ -174,37 +174,31 @@
                         <!-- To make this form functional, sign up at-->
                         <!-- https://startbootstrap.com/solution/contact-forms-->
                         <!-- to get an API token!-->
-                        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                            <!-- Name input-->
+                        <form th:action="@{/inicio/save}" th:objetct="${solicitud}"  method="post">
+
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="dni" type="number" placeholder="Enter your name..." data-sb-validations="required" />
-                                <label for="dni">DNI</label>
-                                <div class="invalid-feedback" data-sb-feedback="dni:required">Se requiere el DNI del paciente.</div>
+                                <input name="DNI_SOLICITANTE" class="form-control" type="text" placeholder="Enter your DNI..." required/>
+                                <label for="DNI_SOLICITANTE">DNI</label>
                             </div>
-                            <!-- Nombres completos input-->
+
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="message" type="text" placeholder="Enter your message here..." data-sb-validations="required"></input>
-                                <label for="message">Nombres completos</label>
-                                <div class="invalid-feedback" data-sb-feedback="message:required">Se requiere los nombres completos del paciente.</div>
+                                <input name="NOMBRE_SOLICITANTE" class="form-control" type="text" placeholder="Enter your name here..." required></input>
+                                <label>Nombres completos</label>
                             </div>
-                            <!-- Email address input -->
+
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="email" type="text" placeholder="name@example.com" data-sb-validations="required,email" />
-                                <label for="name">Correo electrónico</label>
-                                <div class="invalid-feedback" data-sb-feedback="email:required">Se requiere un correo para contactarnos con usted</div>
-                                <div class="invalid-feedback" data-sb-feedback="email:email">Correo no válido.</div>
+                                <input name="CORREO_SOLICITANTE" class="form-control" type="text" placeholder="name@example.com" required/>
+                                <label for="CORREO_SOLICITANTE">Correo electrónico</label>
+                                
                             </div>
-                            <!-- Phone number input-->
+
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="phone" type="number" placeholder="(123) 456-7890" data-sb-validations="required" />
-                                <label for="phone">Número telefónico</label>
-                                <div class="invalid-feedback" data-sb-feedback="phone:required">Se requiere un número telefónico.</div>
+                                <input name="TELEFONO_SOLICITANTE" class="form-control" type="text" placeholder="(123) 456-7890" required/>
+                                <label for="TELEFONO_SOLICITANTE">Número telefónico</label>
                             </div>
                             
-                            <!-- Submit success message-->
-                            <!---->
-                            <!-- This is what your users will see when the form-->
-                            <!-- has successfully submitted-->
+                                <input name="FECHA_SOLICITUD" class="form-control" type="hidden"/>
+                            
                             <div class="d-none" id="submitSuccessMessage">
                                 <div class="text-center mb-3">
                                     <div class="fw-bolder">Tu solicitud de reserva se envió con éxito!</div>
@@ -212,13 +206,10 @@
                                     <br/>
                                 </div>
                             </div>
-                            <!-- Submit error message-->
-                            <!---->
-                            <!-- This is what your users will see when there is-->
-                            <!-- an error submitting the form-->
-                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                            
+                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error al enviar el mensaje</div></div>
                             <!-- Submit Button-->
-                            <div class="d-grid"><button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Registrarse</button></div>
+                            <div class="d-grid"><button class="btn btn-primary btn-xl " id="submitButton" type="submit">Enviar solicitud</button></div>
                         </form>
                     </div>
                 </div>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Iniciar sesión</title>
+        <link rel="icon" type="image/jpeg" th:href="@{/assets/logo.png}">
+        <link th:href="@{/css/login_css/styleLogin.css}" rel="stylesheet" />
+        
+        <link th:href="@{/css/styles.css}" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id="form-login" class="form-container">
+            <div class="login-container">
+                <h1>Bienvenido!</h1>
+                <p><b>Ingresa tus credenciales para continuar</b></p>
+                <div class="login-input">
+                    <form th:action="@{/login/}" method="post">
+                        <div class="input-box">
+                            <i class="fa-solid fa-user fa-xl" style="color: #ffffff;"></i>
+                            <input type="text" id="username" name="username" autocomplete="off">
+                        </div>
+                        <div class="input-box">
+                            <i class="fa-solid fa-key fa-xl" style="color: #ffffff;"></i>
+                            <input type="password" id="password" name="password">
+                        </div>
+                        <div class="input-buttons">
+                            <button type="submit" class="btn btn-light mx-2"><b>Iniciar Sesión</b></button>
+                            <button type="submit" class="btn btn-light mx-3"><b>Registrarse</b></button>
+                        </div>
+                    </form>
+                    
+                </div>
+                <div class="back-opt">
+                    <a th:href="@{/inicio/}"><i class="fa-solid fa-circle-arrow-left fa-xl" style="color: #ffffff;"></i></a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

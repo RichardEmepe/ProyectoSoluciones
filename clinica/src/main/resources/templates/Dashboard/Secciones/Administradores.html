@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head th:replace="Dashboard/layout/fragmentos :: fCabecera">
+    </head>
+    <body class="sb-nav-fixed">
+        <nav th:replace="Dashboard/layout/fragmentos :: fNav">
+            
+        </nav>
+        <div id="layoutSidenav">
+            <div th:replace="Dashboard/layout/fragmentos :: fMenu">
+                
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1>Gestor de cuentas administrativas</h1>
+                        <br>
+
+                        <div class="row">   
+                            <div class="col-md-4">
+
+                            </div>
+
+
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4><i class="fa-solid fa-user-plus"></i> Crear cuenta</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <form th:action="@{/dashboard/administradores/registraradmin}" th:object="${administradores}" method="post">
+                                            <div class="row">
+                                                <div class="col-md-6 mb-2">
+                                                    <label>Usuario</label>
+                                                    <input name="username" type="text" class="form-control" placeholder="Ej: usuario10" required/>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <label>Contraseña</label>
+                                                    <input name="password" type="password" class="form-control" placeholder="Ingrese su contraseña" required/>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <input name="enabled" type="hidden" class="form-control" required value="1"/>
+                                                </div>
+
+                                                <div class="col-12 mt-4 text-center">
+                                                    <button type="submit" class="btn btn-success">Crear usuario</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <br><br><br>
+
+                        <h2>Cuentas administrativas disponibles</h2>
+
+                        <br>
+                        <div class="row">
+                            <div class="col-md-1">
+
+                            </div>
+                            <div class="col-md-10">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4><i class="fa-solid fa-list-ul"></i> Cuentas registradas</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-hover table-light">
+                                                <thead>
+                                                    <tr class="text-center">
+                                                        <th>ID</th>
+                                                        <th>ㅤUsuarioㅤ</th>
+                                                        <th>Contraseña</th>
+                                                        <th>ㅤㅤActivoㅤㅤ</th>
+                                                        <th></th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr th:each="admin : ${listaAdmin}">
+                                                        <td th:text="${admin.id}" class="text-center"></td>
+                                                        <td th:text="${admin.username}" class="text-center"></td>
+                                                        <td th:text="${admin.password}"></td>
+                                                        <td th:text="${admin.enabled}" class="text-center"></td>
+        
+                                                        <td class="text-center">
+                                                            <a href="#" class="btn btn-warning asignarRol" 
+                                                            th:data-iduser="${admin.id}"
+                                                            th:data-username="${admin.username}">
+                                                                <i class="fa-solid fa-id-card"></i>
+                                                                <b>Hacer administrador</b>
+                                                            </a>
+                                                        </td>
+                                                        <td class="text-center ">
+                                                            <a th:href="@{/dashboard/administradores/delete/}+${admin.id}" class="btn btn-danger" onclick="return confirm('Borrar cuenta? Esta acción es irreversible.')">
+                                                                <i class="fa-solid fa-trash-can"></i>
+                                                                <b>Eliminar cuenta</b>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer th:replace="Dashboard/layout/fragmentos :: fFooter">
+                    
+                </footer>
+            </div>
+        </div>
+
+        <!-- MODAL ASIGNAR DOCTOR -->
+        <div class="modal fade" id="modalAsignar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmación de rol</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    
+                    <form th:action="@{/dashboard/administradores/asignarrol}" th:object="${rol}" method="post">
+                        <div class="modal-body">
+                                <div class="col-12 mb-3">
+                                    <h5>Desea asignar el rol administrativo al usuario:</h5>
+                                    <input type="hidden" name="adm_id" id="txtIduser" class="form-control" readonly/>
+                                    <input type="text" id="txtUsername" class="form-control" readonly/>
+                                    <input type="hidden" name="nombre" value="Administrador"/>
+                                </div>
+                        </div>
+    
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-success">Asignar</button>
+
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL CONFIRMAR DATOS DE LA CITA -->
+        <div class="modal fade" id="modalConfirmar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmar cita</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    
+                    <form th:action="@{/dashboard/citas/programarcita}" th:object="${citas}" method="post">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <h4>Detalles de la cita</h4>
+                                    <label>DNI del paciente:</label>
+                                    <input type="text" name="paciente.DNI" id="txtDNIpaciente" class="form-control" readonly/>
+                                    <label>Especialidad:</label>
+                                    <input type="text" name="especialidad_aten.ESPEC_ATEN" id="txtEspecAten" class="form-control" readonly/>
+                                    <br>
+                                    <h5>Fecha y hora programada</h5>
+                                    <label>Fecha:</label>
+                                    <input type="text" name="Fecha" id="txtFechaCita" class="form-control" readonly/>
+                                    <label>Hora:</label>
+                                    <input type="text" name="Hora" id="txtHoraCita" class="form-control" readonly/>
+                                    <br>
+                                    <h5>Doctor asignado:</h5>
+                                    <input type="text" name="doctor.DNI_DOCTOR" id="txtDoctorAsig" class="form-control" readonly/>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Atrás</button>
+                            <button type="submit" class="btn btn-success">Agendar cita</button>
+
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+
+
+
+        <div th:replace="Dashboard/layout/fragmentos :: fLibrerias">
+        </div>
+        
+        <script th:src="@{/js/libreriaAdministradores.js}"></script>
+    </body>
+</html>

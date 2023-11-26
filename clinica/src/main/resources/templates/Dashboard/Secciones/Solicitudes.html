@@ -23,7 +23,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered table-hover">
+                                    <table class="table table-bordered table-hover table-light">
                                         <thead>
                                             <tr class="text-center">
                                                 <th>DNI solicitante</th>
@@ -40,23 +40,6 @@
                                                 <td th:text="${solicitud.CORREO_SOLICITANTE}"></td>
                                                 <td th:text="${solicitud.TELEFONO_SOLICITANTE}"></td>
                                                 <td th:text="${solicitud.FECHA_SOLICITUD}"></td>
-                                                
-                                                <!-- <td class="text-center">
-                                                    <a href="#" class="btn btn-warning editarPaciente"
-                                                    th:data-dni = "${paciente.DNI}"
-                                                    th:data-nombres = "${paciente.Nombres}"
-                                                    th:data-apellidos = "${paciente.Apellidos}"
-                                                    th:data-telefono = "${paciente.Telefono}">
-                                                        <i class="fa-solid fa-pen-to-square"></i>
-                                                        <b>Asignar doctor</b>
-                                                    </a>
-                                                </td>
-                                                <td class="text-center ">
-                                                    <a th:href="@{/dashboard/pacientes/delete/}+${paciente.DNI}" class="btn btn-danger" onclick="return confirm('Borrar paciente? Los cambios no se podrán revertir.')">
-                                                        <i class="fa-solid fa-trash-can"></i>
-                                                        <b>Eliminar cita</b>
-                                                    </a>
-                                                </td> -->
                                             </tr>
                                         </tbody>
                                     </table>

@@ -22,3 +22,15 @@ document.querySelectorAll(".asignarDoctor").forEach(i => i.addEventListener("cli
 
 }
 ))
+
+document.querySelectorAll(".confirmarCita").forEach(i => i.addEventListener("click", e =>{
+    document.getElementById('txtDNIpaciente').value = i.dataset.dni;
+    document.getElementById('txtEspecAten').value = i.dataset.especi;
+    document.getElementById('txtFechaCita').value = i.dataset.fechacita;
+    document.getElementById('txtHoraCita').value = i.dataset.horacita;
+    document.getElementById('txtDoctorAsig').value = i.dataset.nrocita;
+
+    var myModal = new bootstrap.Modal(document.getElementById('modalConfirmar'))
+    myModal.show();
+}
+))

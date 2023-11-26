@@ -14,47 +14,92 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1>Visualización de Citas</h1>
+                        <h1>Gestor de citas</h1>
+
+                        <br><br>
+                        <div class="row">   
+                            <div class="col-md-3">
+
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4><i class="fa-solid fa-file-pen"></i> Programar cita</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <form th:action="@{/dashboard/citas/programarcita}" th:object="${citas}" method="post">
+                                            <div class="row">
+                                                <div class="col-md-6 mb-2">
+                                                    <label>DNI del paciente</label>
+                                                    <input name="paciente.DNI" type="text" class="form-control" placeholder="Ingrese DNI del paciente" required/>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <label>Especialidad a atender</label>
+                                                    <select id="listaEspecialidades" name="especialidad_aten.ESPEC_ATEN" class="form-select" aria-label="Default select example">
+                                                        <option selected>Seleccione</option>
+                                                        <option th:each="listaE : ${listaEspecialidades}" th:value="${listaE.ESPEC_ATEN}" th:text="${listaE.Especialidad}"></option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-3 mb-2">
+                                                    <label>Fecha:</label>
+                                                    <input name="Fecha" type="date" class="form-control" placeholder="Ingrese apellidos del doctor" required/>
+                                                </div>
+                                                <div class="col-md-3 mb-2">
+                                                    <label>Hora:</label>
+                                                    <input name="Hora" type="time" class="form-control" placeholder="Ingrese apellidos del doctor" required/>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <label>Doctores disponibles:</label>
+                                                    <select id="listarDoctores" name="doctor.DNI_DOCTOR" class="form-select" aria-label="Default select example">
+                                                        <option selected>Seleccione el doctor</option>
+                                                        <option th:each="listaDoc : ${listaDoctores}" th:value="${listaDoc.DNI_DOCTOR}" th:text="${listaDoc.Nombres+' '+listaDoc.Apellidos+' - '+listaDoc.especialidad_doc.Especialidad}"></option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="col-12 mt-4 text-center">
+                                                    <button type="submit" class="btn btn-success">Programar cita</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
 
                         <br><br><br>
+
+                        <h1>Visualización de Citas</h1>
+
+                        <br>
                         <div class="card">
                             <div class="card-header">
                                 <h4><i class="fa-solid fa-list-ul"></i> Citas registradas</h4>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered table-hover">
+                                    <table class="table table-bordered table-hover table-light">
                                         <thead>
                                             <tr class="text-center">
                                                 <th>Nro. Cita</th>
-                                                <th>Fecha</th>
-                                                <th>Hora</th>
+                                                <th>Fecha y hora</th>
                                                 <th>Especialidad</th>
                                                 <th>Doctor asignado</th>    
                                                 <th>DNI del paciente</th>
+                                                <th></th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr th:each="citas : ${listaCitas}">
-                                                <td th:text="${citas.NRO_CITA}"></td>
-                                                <td th:text="${citas.Fecha}"></td>
-                                                <td th:text="${citas.Hora}"></td>
-                                                <td th:text="${citas.especialidad_aten.Especialidad}"></td>
+                                                <td th:text="${citas.NRO_CITA}" class="text-center"></td>
+                                                <td th:utext="${'Fecha: '+citas.Fecha+'<br/>Hora: '+ citas.Hora}"></td>
+                                                <td th:text="${citas.especialidad_aten.Especialidad}" class="text-center"></td>
+                                                <td th:text="${citas.doctor.Nombres + ' ' + citas.doctor.Apellidos}" class="text-center"></td>
+                                                <td th:text="${citas.paciente.DNI}" class="text-center"></td>
 
-                                                <td>
-                                                    <p th:text="${citas.doctor.DNI_DOCTOR} ? ${citas.doctor.Nombres+' '+citas.doctor.Apellidos} : 'No asignado'"></p>
-                                                </td>
-
-                                                <!-- <td th:if="${citas.doctor.DNI_DOCTOR}" th:text="${citas.doctor.DNI_DOCTOR}"></td> -->
-                                                <!-- <td th:if="${citas.doctor.DNI_DOCTOR.size()==0}">N/A</td> -->
-<!-- 
-                                                <td >
-                                                    <span th:if="${citas.doctor.DNI_DOCTOR}" th:text="${citas.doctor.DNI_DOCTOR}"></span>
-                                                    <span th:if="${citas.doctor.DNI_DOCTOR.isNull()}">NADA</span>
-                                                </td> -->
-
-
-                                                <td th:text="${citas.paciente.DNI}"></td>
                                                 <td class="text-center">
                                                     <a href="#" class="btn btn-warning asignarDoctor"
                                                     th:data-nrocita = "${citas.NRO_CITA}"
@@ -69,12 +114,12 @@
                                                         <b>Asignar doctor</b>
                                                     </a>
                                                 </td>
-                                                <!-- <td class="text-center ">
-                                                    <a th:href="@{/dashboard/pacientes/delete/}+${paciente.DNI}" class="btn btn-danger" onclick="return confirm('Borrar paciente? Los cambios no se podrán revertir.')">
-                                                        <i class="fa-solid fa-trash-can"></i>
-                                                        <b>Eliminar cita</b>
+                                                <td class="text-center ">
+                                                    <a th:href="@{/dashboard/citas/cancelar/}+${citas.NRO_CITA}" class="btn btn-danger" onclick="return confirm('Desea cancelar la cita? Los cambios no se podrán revertir.')">
+                                                        <i class="fa-solid fa-xmark fa-lg"></i>
+                                                        <b>Cancelar cita</b>
                                                     </a>
-                                                </td> -->
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -89,11 +134,12 @@
             </div>
         </div>
 
+        <!-- MODAL ASIGNAR DOCTOR -->
         <div class="modal fade" id="modalAsignar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar datos del paciente</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Asignar un doctor</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     
@@ -129,6 +175,48 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                             <button type="submit" class="btn btn-success">Asignar</button>
+
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL CONFIRMAR DATOS DE LA CITA -->
+        <div class="modal fade" id="modalConfirmar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmar cita</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    
+                    <form th:action="@{/dashboard/citas/programarcita}" th:object="${citas}" method="post">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <h4>Detalles de la cita</h4>
+                                    <label>DNI del paciente:</label>
+                                    <input type="text" name="paciente.DNI" id="txtDNIpaciente" class="form-control" readonly/>
+                                    <label>Especialidad:</label>
+                                    <input type="text" name="especialidad_aten.ESPEC_ATEN" id="txtEspecAten" class="form-control" readonly/>
+                                    <br>
+                                    <h5>Fecha y hora programada</h5>
+                                    <label>Fecha:</label>
+                                    <input type="text" name="Fecha" id="txtFechaCita" class="form-control" readonly/>
+                                    <label>Hora:</label>
+                                    <input type="text" name="Hora" id="txtHoraCita" class="form-control" readonly/>
+                                    <br>
+                                    <h5>Doctor asignado:</h5>
+                                    <input type="text" name="doctor.DNI_DOCTOR" id="txtDoctorAsig" class="form-control" readonly/>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Atrás</button>
+                            <button type="submit" class="btn btn-success">Agendar cita</button>
 
                         </div>
                     </form>

@@ -25,5 +25,10 @@ public class CitasService implements ICitasService{
         return (List<Citas>) citasDAO.findAll();
     }
 
+    @Override
+    public void cancelarCita(Long NRO_CITA) {
+        citasDAO.deleteById(NRO_CITA);
+    }
+
 
 }

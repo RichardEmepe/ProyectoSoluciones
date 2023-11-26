@@ -1,19 +1,17 @@
 package com.proyecto_clinica.clinica.model.Entidades;
 
 import java.io.Serializable;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "Paciente")
 public class Paciente implements Serializable{
     @Id
-    // @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "DNI")
-    private Long DNI;
+    private String DNI;
 
     @Column(name = "Nombres")
     private String Nombres;
@@ -24,11 +22,14 @@ public class Paciente implements Serializable{
     @Column(name = "Telefono")
     private String Telefono;
 
-    public Long getDNI() {
+    @Column(name = "Passw")
+    private String Passw;
+
+    public String getDNI() {
         return DNI;
     }
 
-    public void setDNI(Long dNI) {
+    public void setDNI(String dNI) {
         DNI = dNI;
     }
 
@@ -55,7 +56,13 @@ public class Paciente implements Serializable{
     public void setTelefono(String telefono) {
         Telefono = telefono;
     }
-    
-    
+
+    public String getPassw() {
+        return Passw;
+    }
+
+    public void setPassw(String passw) {
+        Passw = passw;
+    }
 
 }

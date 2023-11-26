@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.proyecto_clinica.clinica.model.Entidades.Paciente;
 
-public interface IPacientesDAO extends CrudRepository<Paciente, Long>{
+public interface IPacientesDAO extends CrudRepository<Paciente, String>{
     
 }

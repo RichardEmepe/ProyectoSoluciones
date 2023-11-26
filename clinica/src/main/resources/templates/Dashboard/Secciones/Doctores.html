@@ -20,6 +20,10 @@
                         <br><br>
                         
                         <div class="row">   
+                            <div class="col-md-3">
+
+                            </div>
+
                             <div class="col-md-6">
                                 <div class="card">
                                     <div class="card-header">
@@ -59,47 +63,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- <div class="col-md-6">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4><i class="fa-solid fa-magnifying-glass"></i> Buscar pacientes</h2>
-                                    </div>
-                                    <div class="card-body">
-                                        <form th:action="@{/dashboard/pacientes/buscar}" method="post">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <input name="txtBuscarDNI" type="text" class="form-control" placeholder="Ingrese DNI" required>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <button type="submit" class="btn btn-primary">Buscar</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                        <br>
-                                        <div class="row">
-                                            <ul class="list-group list-group-flush">
-                                                <li class="list-group-item">
-                                                    DNI: <span th:text="${pacienteBuscado.DNI}"></span>
-        
-                                                </li>
-                                                <li class="list-group-item">
-                                                    Nombres: <span th:text="${pacienteBuscado.Nombres}"></span>
-        
-                                                </li>
-                                                <li class="list-group-item">
-                                                    Apellidos: <span th:text="${pacienteBuscado.Apellidos}"></span>
-        
-                                                </li>
-                                                <li class="list-group-item">
-                                                    Teléfono: <span th:text="${pacienteBuscado.Telefono}"></span>
-        
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <br>
-                                    </div>
-                                </div>
-                            </div> -->
                         </div>
                         <div class="center-card">
                             
@@ -112,13 +75,15 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered table-hover">
+                                    <table class="table table-bordered table-hover table-light">
                                         <thead>
                                             <tr class="text-center">
                                                 <th>DNI</th>
                                                 <th>Nombres</th>
                                                 <th>Apellidos</th>
                                                 <th>Especialidad</th>
+                                                <th></th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -136,12 +101,12 @@
                                                         <b>Editar</b>
                                                     </a>
                                                 </td>
-                                                <!-- <td class="text-center ">
-                                                    <a th:href="@{/dashboard/pacientes/delete/}+${paciente.DNI}" class="btn btn-danger" onclick="return confirm('Borrar paciente? Los cambios no se podrán revertir.')">
+                                                <td class="text-center ">
+                                                    <a th:href="@{/dashboard/doctores/delete/}+${doctor.DNI_DOCTOR}" class="btn btn-danger" onclick="return confirm('Borrar doctor? Los cambios no se podrán revertir.')">
                                                         <i class="fa-solid fa-trash-can"></i>
                                                         <b>Eliminar</b>
                                                     </a>
-                                                </td> -->
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -171,6 +136,8 @@
                     
                     <form th:action="@{/dashboard/doctores/save}" th:object="${doctor}" method="post">
                         <div class="modal-body">
+                            <h4>Información del doctor</h4>
+
                             <div class="row">
                                 <div class="col-12 mb-3">
                                     <input type="hidden" name="DNI_DOCTOR" id="txtDNI" />

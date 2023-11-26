@@ -53,13 +53,13 @@ public class PacientesController {
     }
 
     @RequestMapping("/delete/{DNI}")
-    public String delete(@PathVariable(value = "DNI") Long DNI){
+    public String delete(@PathVariable(value = "DNI") String DNI){
         pacienteService.eliminarPaciente(DNI);
         return "redirect:/dashboard/pacientes/";
     }
 
     @RequestMapping(value = "/buscar", method = RequestMethod.POST)
-    public String buscar(Long txtBuscarDNI, Model model){
+    public String buscar(String txtBuscarDNI, Model model){
         Paciente pacienteBuscado = new Paciente();
         Paciente paciente = new Paciente();
 
@@ -78,5 +78,6 @@ public class PacientesController {
 
         return "Dashboard/Secciones/Pacientes";
     }
+
 
 }

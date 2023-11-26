@@ -23,6 +23,10 @@ public class DoctorService implements IDoctorService{
     public List<Doctor> listarDoctores() {
         return (List<Doctor>) doctorDAO.findAll();
     }
+    @Override
+    public void eliminarDoctor(Long DNI_DOCTOR) {
+        doctorDAO.deleteById(DNI_DOCTOR);
+    }
 
     
 

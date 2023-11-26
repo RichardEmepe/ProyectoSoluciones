@@ -26,12 +26,12 @@ public class PacienteService implements IPacienteService{
     }
 
     @Override
-    public void eliminarPaciente(Long DNI) {
+    public void eliminarPaciente(String DNI) {
         pacientesDAO.deleteById(DNI);
     }
 
     @Override
-    public Paciente buscarPaciente(Long DNI) {
+    public Paciente buscarPaciente(String DNI) {
         return pacientesDAO.findById(DNI).orElse(null);
     }
     

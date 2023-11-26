@@ -41,9 +41,13 @@
                                                     <label>Apellidos del paciente</label>
                                                     <input th:field="*{Apellidos}" type="text" class="form-control" placeholder="Ingrese apellidos del paciente" required/>
                                                 </div>
-                                                <div class="col-md-12 mb-2">
+                                                <div class="col-md-6 mb-2">
                                                     <label>Teléfono del paciente</label>
                                                     <input th:field="*{Telefono}" type="text" class="form-control" placeholder="Ingrese teléfono del paciente" required/>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <label>Contraseña</label>
+                                                    <input th:field="*{Passw}" type="password" class="form-control" placeholder="Ingrese contraseña" required/>
                                                 </div>
                                                 <div class="row mt-3">
                                                     <div class="col-12 text-center">
@@ -108,13 +112,16 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered table-hover">
+                                    <table class="table table-bordered table-hover table-light">
                                         <thead>
                                             <tr class="text-center">
                                                 <th>DNI</th>
                                                 <th>Nombres</th>
                                                 <th>Apellidos</th>
                                                 <th>Teléfono</th>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -128,7 +135,8 @@
                                                     th:data-dni = "${paciente.DNI}"
                                                     th:data-nombres = "${paciente.Nombres}"
                                                     th:data-apellidos = "${paciente.Apellidos}"
-                                                    th:data-telefono = "${paciente.Telefono}">
+                                                    th:data-telefono = "${paciente.Telefono}"
+                                                    th:data-passw = "${paciente.Passw}">
                                                         <i class="fa-solid fa-pen-to-square"></i>
                                                         <b>Editar</b>
                                                     </a>
@@ -177,6 +185,7 @@
                     
                     <form th:action="@{/dashboard/pacientes/save}" th:object="${paciente}" method="post">
                         <div class="modal-body">
+                            <h4>Información del paciente</h4>
                             <div class="row">
                                 <div class="col-12 mb-3">
                                     <input type="hidden" name="DNI" id="txtDNI" />
@@ -196,6 +205,13 @@
                                 <div class="col-12 mb-3">
                                     <label>Teléfono del paciente</label>
                                     <input type="text" name="Telefono" id="txtTelefono" class="form-control" required/>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <label>Contraseña</label>
+                                    <input type="password" name="Passw" id="txtPassw" class="form-control" required/>
                                 </div>
                             </div>
                         </div>
@@ -247,6 +263,7 @@
 
                             <div class="row">
                                 <div class="col-12 mb-3">
+                                    <input type="hidden" name="doctor.DNI_DOCTOR" value="77899492">
                                     <label>Especialidad:</label>
                                     <select id="tablasRelacionadas" name="especialidad_aten.ESPEC_ATEN" class="form-select" aria-label="Default select example">
                                         <option selected>Seleccione</option>

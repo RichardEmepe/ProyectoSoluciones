@@ -7,4 +7,5 @@ import com.proyecto_clinica.clinica.model.Entidades.Citas;
 public interface ICitasService {
     public void registrarCita(Citas citas);
     public List<Citas> listarCitas();
+    public void cancelarCita(Long NRO_CITA);
 }

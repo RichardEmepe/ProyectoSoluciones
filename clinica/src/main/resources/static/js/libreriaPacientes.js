@@ -14,6 +14,7 @@ document.querySelectorAll(".editarPaciente").forEach(i => i.addEventListener("cl
         document.getElementById('txtNombres').value = i.dataset.nombres;
         document.getElementById('txtApellidos').value = i.dataset.apellidos;
         document.getElementById('txtTelefono').value = i.dataset.telefono;
+        document.getElementById('txtPassw').value = i.dataset.passw;
 
         var myModal = new bootstrap.Modal(document.getElementById('modalEditar'))
         myModal.show();

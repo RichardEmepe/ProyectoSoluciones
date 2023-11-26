@@ -3,6 +3,7 @@ package com.proyecto_clinica.clinica.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -38,5 +39,10 @@ public class DoctorController {
         return "redirect:/dashboard/doctores/";
     }
     
+    @RequestMapping("/delete/{DNI_DOCTOR}")
+    public String delete(@PathVariable(value = "DNI_DOCTOR") Long DNI_DOCTOR){
+        doctorService.eliminarDoctor(DNI_DOCTOR);
+        return "redirect:/dashboard/doctores/";
+    }
 
 }

@@ -158,7 +158,6 @@
                                     <label>Especialidad:</label>
                                     
                                     <select id="listadoEspecialidad" name="especialidad_doc.ESPEC_DOC" class="form-select" aria-label="Default select example" required>
-                                        <option selected>Seleccione</option>
                                         <option th:each="lista : ${listadoEspecialidad}" th:value="${lista.ESPEC_DOC}" th:text="${lista.Especialidad}"></option>
                                     </select>
 

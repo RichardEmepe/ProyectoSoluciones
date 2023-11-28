@@ -58,6 +58,12 @@ public class PacientesController {
         return "redirect:/dashboard/pacientes/";
     }
 
+    @RequestMapping("/delete/buscar/{DNI}")
+    public String deleteBuscado(@PathVariable(value = "DNI") String DNI){
+        pacienteService.eliminarPaciente(DNI);
+        return "redirect:/dashboard/pacientes/";
+    }
+
     @RequestMapping(value = "/buscar", method = RequestMethod.POST)
     public String buscar(String txtBuscarDNI, Model model){
         Paciente pacienteBuscado = new Paciente();
@@ -75,6 +81,7 @@ public class PacientesController {
         model.addAttribute("pacienteBuscado", pacienteBuscado);
         model.addAttribute("paciente", paciente);
         model.addAttribute("listaPacientes", pacienteService.listar());
+        model.addAttribute("tablasRelacionadas", espec_atenDAO.findAll());
 
         return "Dashboard/Secciones/Pacientes";
     }

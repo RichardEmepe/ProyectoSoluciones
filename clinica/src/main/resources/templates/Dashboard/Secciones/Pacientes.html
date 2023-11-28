@@ -71,32 +71,62 @@
                                                     <input name="txtBuscarDNI" type="text" class="form-control" placeholder="Ingrese DNI" required>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <button type="submit" class="btn btn-primary">Buscar</button>
+                                                    <button type="submit" id="buttonBuscar" class="btn btn-primary">Buscar</button>
                                                 </div>
                                             </div>
                                         </form>
                                         <br>
-                                        <div class="row">
-                                            <ul class="list-group list-group-flush">
-                                                <li class="list-group-item">
-                                                    DNI: <span th:text="${pacienteBuscado.DNI}"></span>
-        
-                                                </li>
-                                                <li class="list-group-item">
-                                                    Nombres: <span th:text="${pacienteBuscado.Nombres}"></span>
-        
-                                                </li>
-                                                <li class="list-group-item">
-                                                    Apellidos: <span th:text="${pacienteBuscado.Apellidos}"></span>
-        
-                                                </li>
-                                                <li class="list-group-item">
-                                                    Teléfono: <span th:text="${pacienteBuscado.Telefono}"></span>
-        
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <br>
+                                        <form action="">
+                                            <div class="row">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item" id="dniBuscado">
+                                                        DNI: <span id="dniEncontrado" th:text="${pacienteBuscado.DNI}"></span>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        Nombres: <span th:text="${pacienteBuscado.Nombres}"></span>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        Apellidos: <span th:text="${pacienteBuscado.Apellidos}"></span>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        Teléfono: <span th:text="${pacienteBuscado.Telefono}"></span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="row ">
+                                                <div class="col-md-3">
+
+                                                </div>
+                                                <div class="col-2">
+                                                    <a id="buttonEditar" href="#" class="btn btn-warning editarPacienteBuscado"
+                                                    th:data-dnibuscado = "${pacienteBuscado.DNI}"
+                                                    th:data-nombrebuscado = "${pacienteBuscado.Nombres}"
+                                                    th:data-apellidobuscado = "${pacienteBuscado.Apellidos}"
+                                                    th:data-telefonobuscado = "${pacienteBuscado.Telefono}"
+                                                    th:data-passwbuscado = "${pacienteBuscado.Passw}">
+                                                        <i class="fa-solid fa-pen-to-square"></i>
+                                                        <b>Editar</b>
+                                                    </a>
+                                                </div>
+                                                <div class="col-3">
+                                                    <a id="buttonAgendar" class="btn btn-info agendarCitaBuscado"
+                                                    th:data-dnibuscado="${pacienteBuscado.DNI}"
+                                                    th:data-nombrebuscado="${pacienteBuscado.Nombres}"
+                                                    th:data-apellidobuscado="${pacienteBuscado.Apellidos}">
+                                                        <i class="fa-solid fa-calendar-days"></i>
+                                                        <b>Agendar cita</b>
+                                                    </a>
+                                                </div>
+                                                <div class="col-3">
+                                                    <a id="buttonEliminar" th:href="@{/dashboard/pacientes/delete/}+${pacienteBuscado.DNI}" class="btn btn-danger" onclick="return confirm('Borrar paciente? Los cambios no se podrán revertir.')">
+                                                        <i class="fa-solid fa-trash-can"></i>
+                                                        <b>Eliminar</b>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                                
+                                            
+                                        </form>
                                     </div>
                                 </div>
                             </div>
